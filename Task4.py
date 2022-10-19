@@ -1,27 +1,35 @@
 # задача 4 необязательная. Найдите корни квадратного уравнения, уравнение вводит через строку пользователь. например, 6*x^2+5*x+6=0 . 
 # Само собой, уравнение может и не иметь решения. Предусмотреть все варианты, сделать обработку исключений.
 
-def input_equation():
+# def input_equation():
 
-    print("Если коэффициент равен 0 или 1, пожалуйста, также введите этот коэффициент при вводе уравнения")
-    equation = input('Введите, пожалуйста,каждый элемент уравнения вида 6 * x ^ 2 + 1 * x + 0 = 0 ЧЕРЕЗ ПРОБЕЛ отдельно: ')
-    buff = equation.split()
-    list = []
-    for i in range(len(buff)):
-        if len(buff) != 13:
-            print('Возможно Вы ввели не все уравнение целиком, необходимо ввести уравнение через ПРОБЕЛ каждый элемент в виде 6 * x ^ 2 + 1 * x + 0 = 0')
-            break
-        else:
-            list.append(buff[i])
-    return list
+#     print("Если коэффициент равен 0 или 1, пожалуйста, также введите этот коэффициент при вводе уравнения")
+#     equation = input('Введите, пожалуйста,каждый элемент уравнения вида 6 * x ^ 2 + 1 * x + 0 = 0 ЧЕРЕЗ ПРОБЕЛ отдельно: ')
+#     buff = equation.split()
+#     list = []
+#     for i in range(len(buff)):
+#         if len(buff) != 13:
+#             print('Возможно Вы ввели не все уравнение целиком, необходимо ввести уравнение через ПРОБЕЛ каждый элемент в виде 6 * x ^ 2 + 1 * x + 0 = 0')
+#             break
+#         else:
+#             list.append(buff[i])
+#     return list
+
+def input_equation(s):
+    s1=s.replace("a"," ")
+    print(s1)
+    s2=s1.replace("b"," ")
+    print(s2)
+    return list(map(int,s2.split(' ')))
+    
 
 import math
 
 def equation_roots(equation):
 
     a = float(equation[0])
-    b = float(equation[6])
-    c = float(equation[10])
+    b = float(equation[1])
+    c = float(equation[2])
     print(a,b,c)
     
     if a != 0:
@@ -67,8 +75,12 @@ def equation_roots(equation):
     else:
         print("Нужно вводить a > 0, иначе это не кв. ур-е !")
 
-equal = input_equation()
-equation_roots(equal)
+try:
+    equation = input('Введите, пожалуйста, уравнение в виде: -2a-4b+5: для вычисления корней квадратного уравнения: ')
+    equal = input_equation(equation)
+    equation_roots(equal)
+except:
+    print('Возможно Вы ввели уравнение не так, как показано в образце, пожалуйста, введите уравнение заново в формате:-2a-4b+5')
         
     
 
