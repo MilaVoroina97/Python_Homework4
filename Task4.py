@@ -16,15 +16,12 @@
 #     return list
 
 def input_equation(s):
-    s1= s.replace("x"," ")
-    s2 = s1.replace("*"," ")
-    s3 = s2.replace("^"," ")
-    s4 = s3.replace('2',' ', 1) 
-    s5 = s4.replace('+',' ')
-    s6 = s5.replace('=',' ')
-    s7 = s6.replace(' ',' ')
+    symbols = ['x','*','^','+','=',' ',',','.']
+    for i in symbols:
+        s = s.replace(i,' ')
+    s1 = s.replace('2',' ', 1) 
     
-    return list(map(int,s7.split( )))
+    return list(map(int,s1.split( )))
     
 
 import math
