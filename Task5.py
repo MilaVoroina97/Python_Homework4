@@ -28,7 +28,7 @@ def check_messages(input_message):#создаем функцию со вложе
     def response(bot_response,list_of_words,if_single_response = False,need_words = []):#вложенная функция, где мы в качестве аргументов берем ответ бота, список слов для распознования ботом, чтобы дать ответ и определяем, может ли ответ быть единственным или же могут быть какие-то ключевые слова для распознования ботом
         nonlocal highest_prob_list
         highest_prob_list[bot_response] = probability_of_message(input_message,list_of_words,if_single_response,need_words)#записываем в словарь ответ бота и процент распознавания слов
-    response('Привет',["здравствуйте","добрый день","привествую","доброго дня","привет"],if_single_response=True)
+    response('Привет',["здравствуйте","добрый", "день","привествую","доброго дня","привет"],if_single_response=True)
     response('У меня все отлично, как у тебя ?',["как","у","тебя","дела"],need_words='дела')
     response('Спасибо!',["мне","нравится","с","тобой","общаться"],need_words=['нравиться','нравишься'])
     response('Пожалуйста',["спасибо","благодарю"],if_single_response=True)
