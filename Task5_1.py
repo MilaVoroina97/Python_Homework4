@@ -11,8 +11,8 @@ def load_file(file):
         return json.load(responses)
 
 
-bot_answers = load_file('response.json')
-# print(bot_answers)
+bot_answers = load_file('answers_bot.json')
+print(bot_answers)
 
 def get_response(our_message):
     message =  re.split(r'\s+|[,;?!.-]\s*',our_message.lower())
